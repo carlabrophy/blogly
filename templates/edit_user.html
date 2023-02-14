@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %}Edit user {% endblock %}
+
+<!-- body -->
+{% block content %}
+<div class="container">
+	<h1>Edit user</h1>
+	<form method="POST">
+		<div class="new-form">
+			<label class="form-label" for="first">First Name</label>
+			<input
+				class="form-control"
+				type="text"
+				name="first"
+				value="{{user.first_name}}"
+			/>
+		</div>
+		<div class="new-form">
+			<label class="form-label" for="last">Last Name</label>
+			<input
+				class="form-control"
+				type="text"
+				name="last"
+				value="{{user.last_name}}"
+			/>
+		</div>
+		<div class="new-form">
+			<label class="form-label" for="url">Image URL</label>
+			<input
+				class="form-control"
+				type="text"
+				name="url"
+				placeholder="Provide an Image for this user"
+			/>
+		</div>
+
+		<div class="edit-btn">
+			<a class="btn btn-info" href="/">Cancel</a>
+			<button type="submit" class="btn btn-success">Edit</button>
+		</div>
+	</form>
+</div>
+
+{% endblock %}

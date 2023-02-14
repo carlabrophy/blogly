@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %} New User From {% endblock %}
+
+<!-- body -->
+{% block content %}
+
+<div class="container">
+	<h1>Create User</h1>
+
+	<!-- using form to get data and using post method to add them to db -->
+	<form action="/users/new" method="POST">
+		<div class="new-form">
+			<label class="form-label" for="first">First Name</label>
+			<input
+				class="form-control"
+				type="text"
+				name="first"
+				placeholder="Enter a first name"
+			/>
+		</div>
+		<div class="new-form">
+			<label class="form-label" for="last">Last Name</label>
+			<input
+				class="form-control"
+				type="text"
+				name="last"
+				placeholder="Enter a last name"
+			/>
+		</div>
+		<div class="new-form">
+			<label class="form-label" for="url">Image URL</label>
+			<input
+				class="form-control"
+				type="text"
+				name="url"
+				placeholder="Provide an Image for this user"
+			/>
+		</div>
+
+		<button class="btn btn-success new-form-btn">Add</button>
+	</form>
+</div>
+{% endblock %}

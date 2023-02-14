@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block title %}Tag details{% endblock %}
+
+<!-- body -->
+{% block content %}
+<div class="container">
+	<h1>{{tag.name}}</h1>
+	<ul>
+		{% for post in posts%}
+		<li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock %}
