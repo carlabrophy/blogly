@@ -18,7 +18,7 @@ class User(db.Model):
     first_name = db.Column(db.String(15), nullable=False)
     last_name = db.Column(db.String(15))
     image_url = db.Column(db.Text, default=default_img)
-    posts = db.relationship('Post', backref='user', cascade="all, delete-orphan")
+    posts = db.relationship('Post', backref='user', cascade="all, delete")
     
 
 
@@ -35,7 +35,7 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    posts_tags = db.relationship('PostTag', backref='post')
+    posts_tags = db.relationship('PostTag', cascade="all, delete" ,backref='post')
 
     @property
     def friendly_date(self):
@@ -63,6 +63,6 @@ class Tag(db.Model):
     posts = db.relationship(
         'Post',
         secondary="posts_tags",
-        # cascade="all,delete",
+        cascade="all, delete",
         backref="tags",
     )
